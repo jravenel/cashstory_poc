@@ -1,0 +1,83 @@
+﻿
+'report': '{{ report_id }}'
+'default': true
+'entityName': '{{ zone }}'
+'id': '{{ index }}'
+'categories': [
+  {
+    'kpis': [
+      {
+        'name': 'Cash Position'
+        'sentiment': 'value':
+          'domain': [ 0 ]
+          'range': [
+            'negative'
+            'positive'
+          ]
+        'data': 'value':
+          'query':
+            'domain': 'dashboard_treasuryindicators'
+            'Period': '<%= requestersManager.date %>'
+            'Entity': '{{ zone }}'
+          'field': 'CashPosition'
+        'precision': 'value': ',.1f'
+        'value': 'value'
+        'source': 'Your Treasury Management Software'
+        'type': 'value-dynamic'
+        'unit': 'M€'
+      }
+      {
+        'name': 'Debt Position'
+        'sentiment': 'value':
+          'domain': [ 0 ]
+          'range': [
+            'positive'
+            'negative'
+          ]
+        'data': 'value':
+          'query':
+            'domain': 'dashboard_treasuryindicators'
+            'Period': '<%= requestersManager.date %>'
+            'Entity': '{{ zone }}'
+          'field': 'DebtPosition'
+        'precision': 'value': ',.1f'
+        'value': 'value'
+        'source': 'Your Treasury Management Software'
+        'type': 'value-dynamic'
+        'unit': 'M€'
+      }
+      {
+        'name': 'Net Position'
+        'type': 'value-dynamic'
+        'precision': 'value': ',.1f'
+        'value': 'value'
+        'source': 'Your Treasury Management Software'
+        'data': 'value':
+          'query':
+            'domain': 'dashboard_treasuryindicators'
+            'Period': '<%= requestersManager.date %>'
+            'Entity': '{{ zone }}'
+          'field': 'NetPosition'
+        'unit': 'M€'
+      }
+    ]
+    'name': 'Treasury Indicators'
+  }
+  {
+    'kpis': [ {
+      'source': 'Your Treasury Management Software'
+      'type': 'score-card'
+      'name': 'Statement'
+      'chartOptions':
+        'variation': 'my_evolution'
+        'label': 'my_label'
+        'limit': 6
+        'value': 'my_value'
+        'units':
+          'evolution_pct': ''
+          'value': ''
+        'data': 'query': 'domain': 'dashboard_statement_scorecard'
+    } ]
+    'name': 'Cash Flow Statement'
+  }
+]

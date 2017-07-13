@@ -1,0 +1,16 @@
+﻿
+'search':
+  'default': '{{default|bool}}'
+  'placeholder': 'Search'
+'name': 'Report'
+'entityName': '{{ Entity }}'
+'execsumNote': 'A Small App developped by MDM IS </br> Cash Strategy Consulting'
+'background':
+  'assetName': 'bg-1'
+  'overlay': false
+'date':
+  'query': 'domain': 'dashboard_switch_ActFcst'
+  'type': 'buttons'
+  'id': 'date'
+  'fields': [ 'breakdown' ]
+'id': '{{ index }}'

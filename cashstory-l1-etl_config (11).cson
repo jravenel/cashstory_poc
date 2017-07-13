@@ -1,0 +1,191 @@
+﻿
+'PERMISSIONS_DATA': 'query':
+  'default': 1
+  'domain': 'dashboards'
+'MONGO_INDEXES': [
+  'domain'
+  'version'
+  [
+    'domain'
+    'subdomain'
+  ]
+  [
+    'domain'
+    'version'
+  ]
+  [
+    'domain'
+    'subdomain'
+    'version'
+  ]
+]
+'DASHBOARDS': [
+  {
+    'report': 'Entity'
+    'query':
+      'default': 1
+      'domain': 'dashboards'
+    'template': 'dashboard'
+  }
+  {
+    'report': 'Entity'
+    'query':
+      'default': '$ne': 1
+      'domain': 'dashboards'
+    'template': 'dashboard-country'
+  }
+]
+'REPORTS': [
+  {
+    'query':
+      'default': 1
+      'domain': 'dashboards'
+    'template': 'report'
+  }
+  {
+    'query':
+      'default': 0
+      'domain': 'dashboards'
+    'template': 'report-country'
+  }
+]
+'DATA_SOURCES': [
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'dashboards'
+    'domain': 'dashboards'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'dashboard_statement_scorecard'
+    'domain': 'dashboard_statement_scorecard'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'dashboard_treasuryindicators'
+    'domain': 'dashboard_treasuryindicators'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'dashboard_switch_ActFcst'
+    'domain': 'dashboard_switch_ActFcst'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'dashboard_performance_fcf'
+    'domain': 'dashboard_performance_fcf'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'dashboard_performance_netposition'
+    'domain': 'dashboard_performance_netposition'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'positions_accounts'
+    'domain': 'positions_accounts'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'positions_bybanks'
+    'domain': 'positions_bybanks'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'positions_bycurrencies'
+    'domain': 'positions_bycurrencies'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'positions_bycountries'
+    'domain': 'positions_bycountries'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'positions_byregions_linechart'
+    'domain': 'positions_byregions_linechart'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'positions_byregions_horizontalBarchart'
+    'domain': 'positions_byregions_horizontalBarchart'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'flows_directcashflow_waterfall'
+    'domain': 'flows_directcashflow_waterfall'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'flows_%vsforecast_sparklines'
+    'domain': 'flows_%vsforecast_sparklines'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'flows_%vsforecast_horizontal_barchart'
+    'domain': 'flows_%vsforecast_horizontal_barchart'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'flows_bankvolume_bubblechart'
+    'domain': 'flows_bankvolume_bubblechart'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'flows_indirectCF'
+    'domain': 'flows_indirectCF'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'analysis_profitability_heatmap'
+    'domain': 'analysis_profitability_heatmap'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'analysis_workingcapkpis'
+    'domain': 'analysis_workingcapkpis'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'analysis_profitvscashmargin'
+    'domain': 'analysis_profitvscashmargin'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'analysis_balancesheet'
+    'domain': 'analysis_balancesheet'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'marketdata_interestrates'
+    'domain': 'marketdata_interestrates'
+    'type': 'google_spreadsheet'
+  }
+  {
+    'spreadsheet_id': '12NPb5CB4eZDZM9DC4oKKIRPs6uUXKU4uk5j5tQCCIfo'
+    'sheetname': 'marketdata_fxrates'
+    'domain': 'marketdata_fxrates'
+    'type': 'google_spreadsheet'
+  }
+]

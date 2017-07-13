@@ -1,0 +1,571 @@
+﻿
+'glossary':
+  'terms': [
+    {
+      'term': 'Cash Position'
+      'meaning': 'is the total cash consolidated of the company. It is the sum of the cash in bank account and the cash investments (standard deposits, certificate deposits, mutual funds...) '
+    }
+    {
+      'term': 'Debt Position'
+      'meaning': 'is the total debt consolidated of the company. It is the sum of all the instruments that enables financing of the company.'
+    }
+    {
+      'term': 'Net Treasury Position'
+      'meaning': 'is the difference between the Cash Position and the Debt Position.'
+    }
+    {
+      'term': 'Regions'
+      'meaning': 'is the term used to aggregate entities for geographical or business analytical purpose.'
+    }
+  ]
+  'title': 'Glossary'
+'slides': [
+  {
+    'id': 0
+    'level': 0
+  }
+  {
+    'level': 1
+    'id': 10
+    'title': 'Positions'
+  }
+  {
+    'level': 1
+    'id': 20
+    'title': 'Flows'
+  }
+  {
+    'level': 1
+    'id': 30
+    'title': 'Analysis'
+  }
+  {
+    'level': 1
+    'id': 40
+    'title': 'Market Data'
+  }
+  {
+    'parent_id': 10
+    'level': 3
+    'id': 1031
+    'chartOptions':
+      'value': 'value'
+      'units':
+        'date': ' '
+        'value': 'Currency'
+      'filters': 'upper-right':
+        'on': 'Cash account'
+        'type': 'dropdown'
+      'date': 'Date'
+      'chartType': 'linechart'
+      'data':
+        'date':
+          'format': '%d/%m/%Y'
+          'selector': 'Date'
+        'query':
+          'domain': 'positions_accounts'
+          'Entity': '<%=report.entityName%>'
+        'postprocess': [ { 'melt':
+          'id': [
+            'Date'
+            'Cash account'
+            'Currency'
+            'Countervaluation currency'
+          ]
+          'value': [
+            'Position'
+            'Countervaluated position'
+          ] } ]
+      'legend': true
+    'title': 'By Accounts'
+  }
+  {
+    'level': 3
+    'title': 'by Banks'
+    'parent_id': 10
+    'filters': 'bottom-right':
+      'on': 'filter'
+      'type': 'buttons'
+    'id': 1032
+    'chartOptions':
+      'sort': 'desc'
+      'value': 'value'
+      'label': 'label'
+      'source': 'Your TMS'
+      'sparklines':
+        'prefix': 'sparkline'
+        'legend': 'Over the past 4 years'
+        'unit': 'k€'
+      'units': 'value': 'filter':
+        ' Revenue in €': 'k€'
+        '% of Revenue': '%'
+      'chartType': 'horizontalBarchart'
+      'data': 'query':
+        'domain': 'positions_bybanks'
+        'Entity': '<%=report.entityName%>'
+  }
+  {
+    'level': 3
+    'title': 'by Currencies'
+    'parent_id': 10
+    'filters': 'bottom-right':
+      'on': 'filter'
+      'type': 'buttons'
+    'commentary': 'Repartition of the Key Treasury Indicators by Currencies'
+    'id': 1034
+    'chartOptions':
+      'sort': 'desc'
+      'value': 'value'
+      'label': 'label'
+      'source': 'Your TMS'
+      'sparklines':
+        'prefix': 'sparkline'
+        'legend': 'Over the past 4 years'
+        'unit': 'k€'
+      'units': 'value': 'filter':
+        ' Revenue in €': 'k€'
+        '% of Revenue': '%'
+      'chartType': 'horizontalBarchart'
+      'data': 'query':
+        'domain': 'positions_bycurrencies'
+        'Entity': '<%=report.entityName%>'
+  }
+  {
+    'title': 'by Countries'
+    'level': 3
+    'parent_id': 10
+    'filters': 'bottom-right':
+      'on': 'Year'
+      'type': 'slider'
+    'id': 1035
+    'chartOptions':
+      'peers': ' '
+      'join': 'Country Code'
+      'projection': 'world'
+      'value': 'Value'
+      'label': 'Country Name'
+      'levels': 4
+      'cartoFiles': ' ': 'world-topojson.json'
+      'kpi': 'kpi'
+      'units': 'value': 'M €'
+      'chartType': 'carto'
+      'data': 'query':
+        'domain': 'positions_bycountries'
+        'Entity': '<%=report.entityName%>'
+      'legend': true
+  }
+  {
+    'parent_id': 10
+    'level': 3
+    'charts': [
+      {
+        'style': 'secondary'
+        'value': 'value'
+        'legend': true
+        'units':
+          'date': ''
+          'value': ' k€'
+        'crossfilter':
+          'on': 'date'
+          'datasets': [ 1 ]
+        'groups': 'label'
+        'chartType': 'linechart'
+        'date': 'date'
+        'cr': 4
+        'data':
+          'date':
+            'format': '%d/%m/%Y'
+            'selector': 'date'
+          'query': 'domain': 'positions_byregions_linechart'
+        'id': 0
+        'size': 0.3
+      }
+      {
+        'value': 'CashPosition'
+        'label': 'label'
+        'crossfilter': 'on': 'date'
+        'units': 'revenue': ' k€'
+        'chartType': 'horizontalBarchart'
+        'data':
+          'date':
+            'format': '%d/%m/%Y'
+            'selector': 'date'
+          'query': 'domain': 'positions_byregions_horizontalBarchart'
+        'id': 1
+        'size': 0.6
+      }
+    ]
+    'id': 1036
+    'title': 'by Regions'
+  }
+  {
+    'level': 3
+    'title': 'Direct Cash FLow'
+    'parent_id': 20
+    'recommendation':
+      'advert': 'More'
+      'content': '<a href="http://example.com/" target="_blank">Complete Report Analysis</a>'
+    'id': 2031
+    'chartOptions':
+      'evolution': 'evolution'
+      'value': 'value'
+      'label': 'label'
+      'sublabel': 'label_sublevel'
+      'units':
+        'evolution': '%'
+        'value': 'k€'
+      'chartType': 'waterfall'
+      'data': 'query': 'domain': 'flows_directcashflow_waterfall'
+      'legend': true
+  }
+  {
+    'parent_id': 20
+    'title': '% vs Forecast'
+    'id': 2032
+    'chartOptions':
+      'sort': 'desc'
+      'precision':
+        'evolution': 'my_evolution_precision'
+        'Pourcentage': 'my_value_precision'
+      'variation': 'evolution'
+      'label': 'Evenements'
+      'variationLegend': 'Var<br>n-1'
+      'meta': 'Effectif'
+      'value': 'Pourcentage'
+      'sparklines':
+        'orderDates': true
+        'value': 'my_value'
+        'joins': [ 'Evenements' ]
+        'date': 'my_date'
+        'data': 'query': 'domain': 'flows_%vsforecast_sparklines'
+        'legend': 'Forecast <br>next 8 months'
+        'unit': ' k€'
+      'units':
+        'evolution': 'my_evolution_unit'
+        'Pourcentage': 'my_value_unit'
+      'chartType': 'horizontalBarchart'
+      'data': 'query': 'domain': 'flows_%vsforecast_horizontal_barchart'
+    'source':
+      'data': 'query': [
+        { '$match': 'domain': 'horizontal_barchart' }
+        { '$sort': 'my_date': -1 }
+        { '$limit': 1 }
+      ]
+      'value': 'Last update : <%= my_date %>'
+  }
+  {
+    'parent_id': 20
+    'level': 3
+    'id': 2039
+    'chartOptions':
+      'evolution': 'evolution'
+      'value': 'value'
+      'label': 'label'
+      'sublabel': 'label_sublevel'
+      'units':
+        'evolution': '%'
+        'value': 'k€'
+      'chartType': 'waterfall'
+      'data': 'query': 'domain': 'flows_indirectCF'
+      'legend': true
+    'title': 'Indirect Cash FLow'
+  }
+  {
+    'level': 3
+    'title': 'Bank Volume'
+    'parent_id': 20
+    'filters': 'bottom-right':
+      'on': 'breakdown'
+      'type': 'buttons'
+    'id': 2033
+    'chartOptions':
+      'withBenchmark': false
+      'color': 'color'
+      'label': 'label'
+      'cy': 'flows'
+      'cx': 'amount'
+      'units':
+        'cy': ' k€'
+        'cx': ' flows'
+        'r': ' Av.'
+      'chartType': 'bubblechart'
+      'r': 'average'
+      'data': 'query': 'domain': 'flows_bankvolume_bubblechart'
+      'legend':
+        'cy': 'flows'
+        'cx': 'amount'
+        'r': 'average'
+  }
+  {
+    'title': 'Profitability'
+    'level': 3
+    'parent_id': 30
+    'source':
+      'data': 'query': [
+        { '$match': 'domain': 'analysis_profitability_heatmap' }
+        { '$sort': 'my_date': -1 }
+        { '$limit': 3 }
+      ]
+      'value': 'Last udpate : <%= my_date %>'
+    'filters': 'bottom-right':
+      'on': 'my_breakdown'
+      'type': 'buttons'
+    'id': 3031
+    'chartOptions':
+      'x': 'x'
+      'target': 'my_target'
+      'xpack': 'xpack'
+      'value': 'my_value'
+      'sentiment': 'my_value':
+        'domain': [
+          '0.9*my_target'
+          'my_target'
+        ]
+        'range': [
+          'negative'
+          'neutral'
+          'positive'
+        ]
+      'units':
+        'my_variation': ' %'
+        'my_value': ' %'
+      'meta': []
+      'variation': 'my_variation'
+      'ypack': 'ypack'
+      'y': 'y'
+      'chartType': 'heatmap'
+      'data':
+        'query': 'domain': 'analysis_profitability_heatmap'
+        'precision':
+          'my_variation': ',.2f'
+          'my_value': ',.2f'
+      'legend': true
+  }
+  {
+    'title': 'Balance sheet'
+    'level': 3
+    'parent_id': 30
+    'filters': 'bottom-right':
+      'on': 'year'
+      'type': 'slider'
+    'id': 3032
+    'chartOptions':
+      'target': 'evolution'
+      'sentiment': 'evolution':
+        'domain': [ 0 ]
+        'range': [
+          'negative'
+          'positive'
+        ]
+      'color': true
+      'labels': [
+        'niveau_1'
+        'niveau_2'
+      ]
+      'value': 'value'
+      'sortByValues': true
+      'units': 'value': 'k€'
+      'chartType': 'treemap'
+      'data':
+        'query': 'domain': 'analysis_balancesheet'
+        'precision':
+          'target': ',.0f'
+          'value': ',.0f'
+  }
+  {
+    'level': 3
+    'title': 'Working Capital'
+    'parent_id': 30
+    'source':
+      'data': 'query': [
+        { '$match': 'domain': 'analysis_workingcapkpis' }
+        { '$limit': 1 }
+      ]
+      'value': 'Last update : <%= update %>'
+    'filters': 'bottom-right':
+      'on': 'breakdown'
+      'type': 'buttons'
+    'recommendation':
+      'advert': 'Info'
+      'content': 'To make sure you follow up your Working Capital properly, 3 KPi\'s are to be analyzed:\n<ul>\n  <li>DSO (Days of Sales Outstanding) is the number of days your customers are paying</li>\n  <li>DPO (Days of Purchase Outstanding) is the number of days you pay your suppliers</li>\n  <li>DIO (Day of Inventory Outstanding) is the number of days of turnover kept in your Stocks</li>\n</ul>'
+    'id': 3033
+    'chartOptions':
+      'comparison': 'Last year'
+      'target': 'Objective'
+      'sentiment': 'value':
+        'domain': [
+          '0.95*Objective'
+          '1.1*Objective'
+        ]
+        'range': [
+          'negative'
+          'warning'
+          'positive'
+        ]
+      'packs': 'group'
+      'value': 'value'
+      'label': 'label'
+      'meta': [ '' ]
+      'colorTargets': true
+      'units': 'value': ' days'
+      'chartType': 'bulletChart'
+      'data': 'query': 'domain': 'analysis_workingcapkpis'
+  }
+  {
+    'level': 3
+    'title': 'Profit vs Cash margin'
+    'parent_id': 30
+    'filters': 'bottom-right':
+      'on': 'filter'
+      'type': 'buttons'
+    'id': 3034
+    'chartOptions':
+      'drillLevel': 'drill-level'
+      'evolution': 'evolution'
+      'drillGroup': 'drill-group'
+      'value': 'value'
+      'label': 'label'
+      'zeroBaseline': 0
+      'units':
+        'evolution': '%'
+        'value': 'k€'
+      'chartType': 'waterfallchart'
+      'data': 'query': 'domain': 'analysis_profitvscashmargin'
+      'legend': true
+  }
+  {
+    'level': 3
+    'title': 'FX Rates'
+    'source': 'Source Datax'
+    'parent_id': 40
+    'filters': 'bottom-right':
+      'on': 'filter'
+      'type': 'buttons'
+      'order': 'custom': [
+        '1Y'
+        '6M'
+        '3M'
+        '5D'
+      ]
+    'id': 4039
+    'chartOptions':
+      'filters': 'upper-right':
+        'reset': 'All'
+        'on': 'variable'
+        'type': 'dropdown'
+      'ticks': 'tickFormat': '%x'
+      'value': 'value'
+      'groups': 'variable'
+      'date': 'date_clean'
+      'chartType': 'linechart'
+      'data':
+        'date':
+          'format': '%Y%m%d'
+          'selector': 'date_clean'
+        'query': [
+          [
+            { '$match': 'domain': 'marketdata_fxrates' }
+            { '$sort': 'date_clean': -1 }
+            { '$limit': 360 }
+            { '$project':
+              'USD': 1
+              'CHF': 1
+              'NOK': 1
+              'CNY': 1
+              'filter': '$literal': '1Y'
+              'date_clean': 1
+              'GBP': 1 }
+          ]
+          [
+            { '$match': 'domain': 'marketdata_fxrates' }
+            { '$sort': 'date_clean': -1 }
+            { '$limit': 180 }
+            { '$project':
+              'USD': 1
+              'CHF': 1
+              'NOK': 1
+              'CNY': 1
+              'filter': '$literal': '6M'
+              'date_clean': 1
+              'GBP': 1 }
+          ]
+          [
+            { '$match': 'domain': 'marketdata_fxrates' }
+            { '$sort': 'date_clean': -1 }
+            { '$limit': 90 }
+            { '$project':
+              'USD': 1
+              'CHF': 1
+              'NOK': 1
+              'CNY': 1
+              'filter': '$literal': '3M'
+              'date_clean': 1
+              'GBP': 1 }
+          ]
+          [
+            { '$match': 'domain': 'marketdata_fxrates' }
+            { '$sort': 'date_clean': -1 }
+            { '$limit': 30 }
+            { '$project':
+              'USD': 1
+              'CHF': 1
+              'NOK': 1
+              'CNY': 1
+              'filter': '$literal': '1M'
+              'date_clean': 1
+              'GBP': 1 }
+          ]
+        ]
+        'multiple_queries': true
+        'postprocess': [ { 'melt':
+          'id': [
+            'date_clean'
+            'filter'
+          ]
+          'value': [
+            'USD'
+            'GBP'
+            'CHF'
+          ] } ]
+        'precision': 'value': '.4f'
+      'legend': true
+  }
+  {
+    'level': 3
+    'title': 'Interest Rates'
+    'parent_id': 40
+    'source': 'Source Datax'
+    'filters': 'bottom-right':
+      'on': 'filter'
+      'type': 'buttons'
+      'order': 'custom': [
+        '1Y'
+        '6M'
+        '3M'
+        '5D'
+      ]
+    'id': 4032
+    'chartOptions':
+      'filters': 'upper-right':
+        'reset': 'All'
+        'on': 'Label'
+        'type': 'dropdown'
+      'value': 'Value'
+      'date': 'Date'
+      'groups': 'Label'
+      'units':
+        'date': ' '
+        'Value': '%'
+      'chartType': 'linechart'
+      'data':
+        'date':
+          'selector': 'Date'
+          'format': '%d/%m/%Y'
+        'query': 'domain': 'marketdata_interestrates'
+        'precision': 'Value': '.4f'
+      'legend': true
+  }
+]
+'sharingOptions': true
+'comments': true
+'settings': []

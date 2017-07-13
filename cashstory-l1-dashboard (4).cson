@@ -1,0 +1,115 @@
+﻿
+'report': '{{ report_id }}'
+'default': true
+'entityName': '{{ zone }}'
+'id': '{{ index }}'
+'categories': [
+  {
+    'kpis': [
+      {
+        'name': 'Cash Position'
+        'sentiment': 'value':
+          'domain': [ 0 ]
+          'range': [
+            'negative'
+            'positive'
+          ]
+        'data': 'value':
+          'query':
+            'domain': 'dashboard_treasuryindicators'
+            'Period': '<%= requestersManager.date %>'
+            'Entity': '{{ zone }}'
+          'field': 'CashPosition'
+        'precision': 'value': ',.1f'
+        'value': 'value'
+        'source': 'Your Treasury Management Software'
+        'slide': 1032
+        'type': 'value-dynamic'
+        'unit': 'M€'
+      }
+      {
+        'name': 'Debt Position'
+        'sentiment': 'value':
+          'domain': [ 0 ]
+          'range': [
+            'positive'
+            'negative'
+          ]
+        'data': 'value':
+          'query':
+            'domain': 'dashboard_treasuryindicators'
+            'Period': '<%= requestersManager.date %>'
+            'Entity': '{{ zone }}'
+          'field': 'DebtPosition'
+        'precision': 'value': ',.1f'
+        'value': 'value'
+        'source': 'Your Treasury Management Software'
+        'slide': 1031
+        'type': 'value-dynamic'
+        'unit': 'M€'
+      }
+      {
+        'name': 'Net Position'
+        'data': 'value':
+          'query':
+            'domain': 'dashboard_treasuryindicators'
+            'Period': '<%= requestersManager.date %>'
+            'Entity': '{{ zone }}'
+          'field': 'NetPosition'
+        'precision': 'value': ',.1f'
+        'value': 'value'
+        'source': 'Your Treasury Management Software'
+        'slide': 1031
+        'type': 'value-dynamic'
+        'unit': 'M€'
+      }
+    ]
+    'name': 'Treasury Indicators'
+  }
+  {
+    'kpis': [
+      {
+        'type': 'line'
+        'name': 'Cost of Debt'
+        'chartOptions':
+          'units': 'value': '%'
+          'value': 'value'
+          'label': 'label'
+          'source': 'Your ERP'
+          'date': 'date'
+          'data': 'query':
+            'breakdown': 'Actuals'
+            'domain': 'dashboard_performance_netposition'
+      }
+      {
+        'unit': 'M€'
+        'type': 'line'
+        'name': 'Free Cash Flow'
+        'chartOptions':
+          'date': 'date'
+          'source': 'Your ERP'
+          'data': 'query': 'domain': 'dashboard_performance_fcf'
+          'value': 'value'
+          'label': 'label'
+      }
+    ]
+    'name': 'Financial Performance'
+  }
+  {
+    'kpis': [ {
+      'source': 'Your ERP'
+      'type': 'score-card'
+      'name': 'Statement'
+      'chartOptions':
+        'value': 'my_value'
+        'label': 'my_label'
+        'limit': 6
+        'variation': 'my_evolution'
+        'units':
+          'value': ''
+          'evolution_pct': ''
+        'data': 'query': 'domain': 'dashboard_statement_scorecard'
+    } ]
+    'name': 'Cash Flow Statement'
+  }
+]
